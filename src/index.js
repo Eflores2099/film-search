@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SearchFilms from './SearchFilm.js'
+import SearchMovies from './searchMovie.js'
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
@@ -8,8 +8,8 @@ class Main extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1 className="title">Film Search</h1>
-        <SearchFilms/>
+        <h1 className="title">Movie Search</h1>
+        <SearchMovies/>
       </div>
     )
   }
