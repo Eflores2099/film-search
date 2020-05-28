@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SearchMovies from './searchMovie.js'
+import SearchMovies from './searchMovies'
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 

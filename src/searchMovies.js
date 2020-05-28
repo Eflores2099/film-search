@@ -10,13 +10,14 @@ export default function SearchMovies() {
         e.preventDefault()
         
 
-        const api_key = process.env.REACT_APP_API_KEY
+        const api_key = process.env.API_KEY
 
-        const url = `https://www.omdbapi.com/?i=tt3896198&apikey=${api_key}&language=en-US&query=${query}&page=1&include_adult=false`
+        const url = `http://www.omdbapi.com/?i=tt3896198&apikey={api_key}&query=${query}&page=1`
 
         try {
             const res = await fetch(url)
             const data = await res.json()
+            console.log('Response', api_key, url, data)
             setMovies(data.results)
         }catch(err) {
             console.error(err)
@@ -38,10 +39,11 @@ export default function SearchMovies() {
             </form>
 
             <div className = "card-list">
+                {console.log(movies)}
                 {movies.filter(movie => movie.poster_path).map(movie => (
                     <div className="card" key={movie.id}>
                         <img className = "card--image" 
-                            src ={`https://img.omdbapi.com/?i=tt3896198&h=600&apikey=3aa94880{movie.poster_path}`}
+                            src ={`http://img.omdbapi.com/?i=tt3896198&h=600&apikey={api_key}${movie.poster_path}`}
                             alt ={movie.title + ' poster'}
                             />
                         <div className ='card-content'>
