@@ -10,20 +10,20 @@ export default function SearchMovies() {
         e.preventDefault()
         
 
-        const api_key = process.env.API_KEY
+        const api_key = process.env.REACT_APP_API_KEY
 
-        const url = `http://www.omdbapi.com/?i=tt3896198&apikey={api_key}&query=${query}&page=1`
+        const url = `http://www.omdbapi.com/?apikey=${api_key}&s=${query}&page=1`
 
         try {
             const res = await fetch(url)
             const data = await res.json()
-            console.log('Response', api_key, url, data)
-            setMovies(data.results)
+            console.log(data)
+            setMovies(data.Search)
         }catch(err) {
             console.error(err)
         }
     }
-
+console.log(movies)
     return (
         <>
             <form className = "form" onSubmit= {searchMovies}>
@@ -40,16 +40,16 @@ export default function SearchMovies() {
 
             <div className = "card-list">
                 {console.log(movies)}
-                {movies.filter(movie => movie.poster_path).map(movie => (
+                {movies.map(movie => (
                     <div className="card" key={movie.id}>
                         <img className = "card--image" 
-                            src ={`http://img.omdbapi.com/?i=tt3896198&h=600&apikey={api_key}${movie.poster_path}`}
+                            src ={movie.Poster}
                             alt ={movie.title + ' poster'}
                             />
                         <div className ='card-content'>
-                            <h3 className="card--title">{movie.title}</h3>
-                            <p><small>RELEASE DATE: {movie.release_date}</small></p>
-                            <p><small>Rating: {movie.vote_average}</small></p>
+                            <h3 className="card--title">{movie.Title}</h3>
+                            <p><small>RELEASE DATE: {movie.Released}</small></p>
+                            {/* <p><small>Rating: {movie.vote_average}</small></p> */}
                             <p className="card--desc">{movie.overview}</p>
                         </div>    
                     </div>
