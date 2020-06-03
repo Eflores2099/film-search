@@ -46,11 +46,11 @@ console.log(movies)
                             src ={movie.Poster}
                             alt ={movie.title + ' poster'}
                             />
-                        <div className ='card-content'>
+                        <div className ='card--content'>
                             <h3 className="card--title">{movie.Title}</h3>
-                            <p><small>RELEASE DATE: {movie.Released}</small></p>
+                            <p><small>RELEASE DATE:{movie.Released}</small></p>
                             {/* <p><small>Rating: {movie.vote_average}</small></p> */}
-                            <p className="card--desc">{movie.overview}</p>
+                            <p className="card--desc">{movie.plot}</p>
                         </div>    
                     </div>
                 ))}
