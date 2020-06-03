@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import MovieCard from './movieCard.js'
 
 export default function SearchMovies() {
 
@@ -41,18 +42,7 @@ console.log(movies)
             <div className = "card-list">
                 {console.log(movies)}
                 {movies.map(movie => (
-                    <div className="card" key={movie.id}>
-                        <img className = "card--image" 
-                            src ={movie.Poster}
-                            alt ={movie.title + ' poster'}
-                            />
-                        <div className ='card--content'>
-                            <h3 className="card--title">{movie.Title}</h3>
-                            <p><small>RELEASE DATE:{movie.Released}</small></p>
-                            {/* <p><small>Rating: {movie.vote_average}</small></p> */}
-                            <p className="card--desc">{movie.plot}</p>
-                        </div>    
-                    </div>
+                    <MovieCard movie={movie} key={movie.id} />
                 ))}
             </div>
 
